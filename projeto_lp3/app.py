@@ -1,5 +1,6 @@
 #importa a classe Flask do modulo flask
 from flask import Flask
+from validate_docbr import CPF, CNPJ
 
 #Aluno a1 = new aluno();
 #a1= Aluno()
@@ -27,3 +28,26 @@ def contato():
 def produtos():
     return "<h1>Produtos</h1>"
 
+
+#criar uma pag que faz uma rota gerar-cpf (devover cpf aleatorio)
+
+
+@app.route("/gerar-cpf")
+def cpf():
+    cpf = CPF()
+    return cpf.generate(True)
+
+
+#/servicos (deve devolver um titulo com "Nossos Serviços")
+@app.route("/servicos")
+def servicos():
+    return "<h1>Nossos Serviços</h1>"
+
+
+#
+@app.route("/cnpj")
+def cnpj():
+    cnpj = CNPJ()
+    return cnpj.generate(True)
+
+app.run()
