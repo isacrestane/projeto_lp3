@@ -1,5 +1,5 @@
 #importa a classe Flask do modulo flask
-from flask import Flask
+from flask import Flask, render_template
 from validate_docbr import CPF, CNPJ
 
 #Aluno a1 = new aluno();
@@ -15,18 +15,22 @@ app = Flask ("Minha Aplicação")
 #pagina home -/
 @app.route("/")
 def home():
-    return "<h1>Home page</h1>"
+    return render_template("home.html")
 
 #pagina de contato - /contato
 
 @app.route("/contato")
 def contato():
-    return "<h1>Contatos</h1>"
+    return render_template("contato.html")
 
 
-@app.route("/produto")
+@app.route("/produtos")
 def produtos():
-    return "<h1>Produtos</h1>"
+    lista_produtos = [
+        { "nome": "Coca-Cola", "descricao": "Mata a sede" },
+        { "nome": "Doritos", "descricao": "Suja a mao" }
+    ]
+    return render_template("produtos.html", produtos=lista_produtos)
 
 
 #criar uma pag que faz uma rota gerar-cpf (devover cpf aleatorio)
