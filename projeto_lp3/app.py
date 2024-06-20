@@ -36,10 +36,11 @@ def produtos():
 #criar uma pag que faz uma rota gerar-cpf (devover cpf aleatorio)
 
 
-@app.route("/gerar-cpf")
+@app.route("/cpf")
 def cpf():
     cpf = CPF()
-    return cpf.generate(True)
+    cpfretorno = cpf.generate(True)
+    return render_template("cpf.html", cpf = cpfretorno)
 
 
 #/servicos (deve devolver um titulo com "Nossos Serviços")
@@ -48,10 +49,25 @@ def servicos():
     return "<h1>Nossos Serviços</h1>"
 
 
-#
+
 @app.route("/cnpj")
 def cnpj():
     cnpj = CNPJ()
-    return cnpj.generate(True)
+    cnpjretorno = cnpj.generate(True)
+    return render_template("cnpj.html", cnpj = cnpjretorno)
 
+
+@app.route("/termos")
+def termos():
+    return render_template("termos.html")
+app.run()
+
+@app.route("/politica")
+def politica():
+    return render_template("politica.html")
+app.run()
+
+@app.route("/comousar")
+def comousar():
+    return render_template("comousar.html")
 app.run()
