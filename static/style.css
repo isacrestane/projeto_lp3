@@ -1,0 +1,13 @@
+
+h1 {
+    border: 1px splid black;
+    padding: 20px;
+    margin-top: 80px;
+}
+
+
+
+label, input, button {
+    display: block;
+}
+

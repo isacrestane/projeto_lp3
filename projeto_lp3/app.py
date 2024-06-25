@@ -1,6 +1,11 @@
 #importa a classe Flask do modulo flask
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from validate_docbr import CPF, CNPJ
+
+lista_produtos = [
+        { "nome": "Coca-Cola", "descricao": "Mata a sede" },
+        { "nome": "Doritos", "descricao": "Suja a mao" }
+    ]
 
 #Aluno a1 = new aluno();
 #a1= Aluno()
@@ -26,10 +31,7 @@ def contato():
 
 @app.route("/produtos")
 def produtos():
-    lista_produtos = [
-        { "nome": "Coca-Cola", "descricao": "Mata a sede" },
-        { "nome": "Doritos", "descricao": "Suja a mao" }
-    ]
+    
     return render_template("produtos.html", produtos=lista_produtos)
 
 
@@ -42,7 +44,7 @@ def cpf():
     cpfretorno = cpf.generate(True)
     return render_template("cpf.html", cpf = cpfretorno)
 
-
+    return render_template("cadastro_produto.html")
 #/servicos (deve devolver um titulo com "Nossos Serviços")
 @app.route("/servicos")
 def servicos():
@@ -71,3 +73,17 @@ app.run()
 def comousar():
     return render_template("comousar.html")
 app.run()
+
+
+@app.route("/produtos/cadastro", methods=['GET'])
+def cadastro_produto():
+    return render_template("cadastro_produto.html")
+
+
+@app.route("/produtos", methods=['POST'])
+def salvar_produto():
+    nome = request.form['nome']
+    descricao = request.form['descricao']
+    produto = {"nome": nome,"descricao": descricao}
+    lista_produtos.append(produto)
+    return render_template("produtos.html", produtos=lista_produtos)
