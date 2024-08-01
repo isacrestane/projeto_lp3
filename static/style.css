@@ -1,13 +1,76 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
 
-h1 {
-    border: 1px splid black;
+
+body {
+    background-color: antiquewhite;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.menu {
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+.menu a {
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+}
+
+.imagem {
     padding: 20px;
-    margin-top: 80px;
+}
+
+.menu-rodape {
+    margin-bottom: 20px;
+    padding: 15px;
+    text-align: center;
+}
+
+
+.menu-rodape a {
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
 }
 
 
 
+h1 {
+    border: 1px splid black;
+    color: rgb(180, 89, 120);
+    padding: 5px;
+    
+}
+
+.titulo {
+    padding: 15px;
+    margin-top: 10px;
+}
+
+.container {
+    width: 930px;
+    background-color: rgb(255, 248, 238);
+}
+
+.container p {
+    padding: 13px;
+}
+
+.produto {
+    padding: 30px;
+    
+}
+
 label, input, button {
     display: block;
+}
+
+footer {
+    padding: 10px;
 }
 

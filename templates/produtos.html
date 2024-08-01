@@ -4,15 +4,25 @@
 
 {% block content %} 
 
-<h1>Produtos</h1>
+
 {% if produtos %}
-    <p>Estes são nossos produtos</p>
+    <div class = "titulo"> 
+        <h1>Produtos</h1>
+    <p>Estes são nossos produtos!!</p>
+    </div>
     {% for produto in produtos %}
+    <div class = "container">
     <h2>{{ produto.nome }}</h2>
-    <p>{{ produto.descricao }}</p>
+    <p>{{ produto.descricao }}</p> </div>
+    </div>
     {% endfor %}
 {% else %}
-    <p>Aguarde o lançamento dos produtos</p>
+    <div class = "titulo"> 
+        <h1>Produtos</h1>
+    <p>Aguarde o lançamento dos produtos!!</p>
+    
+
+
 {% endif %}      
 
 {% endblock %}

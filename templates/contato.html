@@ -4,6 +4,18 @@
 {% block title %}Contato{% endblock %}
 
 {% block content %}
-<h1>Entre em contato</h1>
+<div class= "titulo">
+    <h1>Entre em contato</h1>
 <p>Utilize o forms abaixo para entrar em contato</p>
+</div>
+    <div class = "container">
+    <p>
+    <label for="name">Nome:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="email">Motivo do contato:</label><br>
+    <input type="motivo" id="motivo" name="motivo"><br><br>
+    <input type="submit" value="Enviar">
+    </div>
+    </p>
+
 {% endblock %}
