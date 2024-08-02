@@ -12,10 +12,11 @@
     </div>
     {% for produto in produtos %}
     <div class = "container">
-    <h2>{{ produto.nome }}</h2>
-    <p>{{ produto.descricao }}</p> </div>
-    </div>
-    {% endfor %}
+        <img src="{{url_for('static',filename='/imagens/'+ produto.img +'.PNG')}}" width="300px" alt="" id="f1" class="foto-produto">    
+        <h2>{{ produto.nome }}</h2>
+        <p>{{ produto.descricao }}</p>
+        </div>
+        {% endfor %}
 {% else %}
     <div class = "titulo"> 
         <h1>Produtos</h1>
@@ -25,4 +26,4 @@
 
 {% endif %}      
 
-{% endblock %}
+{% endblock %}

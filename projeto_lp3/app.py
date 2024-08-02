@@ -3,9 +3,9 @@ from flask import Flask, render_template, request
 from validate_docbr import CPF, CNPJ
 
 lista_produtos = [
-        { "nome": "Suco de Laranja", "descricao": "Mata a sede" },
-        { "nome": "Bandeja de Morangos", "descricao": "Muito bom" },
-        { "nome": "Vitamina de Banana", "descricao": "Deixa forte" }
+        { "nome": "Suco de Laranja", "descricao": "Mata a sede", "img": "1"},
+        { "nome": "Bandeja de Morangos", "descricao": "Muito bom", "img": "2"},
+        { "nome": "Vitamina de Banana", "descricao": "Deixa forte", "img": "3"}
     ]
 
 #Aluno a1 = new aluno();
@@ -85,7 +85,6 @@ def cadastro_produto():
 def salvar_produto():
     nome = request.form['nome']
     descricao = request.form['descricao']
-    produto = {"nome": nome,"descricao": descricao}
+    produto = {"nome": nome,"descricao": descricao, "img": ''}
     lista_produtos.append(produto)
     return render_template("produtos.html", produtos=lista_produtos)
-
